@@ -341,7 +341,7 @@ class BeszelNetworkReceiveSensor(BeszelBaseSensor):
     @property
     def native_value(self):
         b_data = self.stats_data.get("b")
-        return b_data[1] / 1024 if self.system and b_data else None
+        return (b_data[1] / 1024) / 1024 if self.system and b_data else None
 
     @property
     def device_class(self):
@@ -375,7 +375,7 @@ class BeszelNetworkSendSensor(BeszelBaseSensor):
     @property
     def native_value(self):
         b_data = self.stats_data.get("b")
-        return b_data[0] / 1024 if self.system and b_data else None
+        return (b_data[0] / 1024) / 1024 if self.system and b_data else None
 
     @property
     def device_class(self):
